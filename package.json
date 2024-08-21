@@ -1,7 +1,7 @@
 {
 	"name": "libsso",
 	"private": true,
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"type": "module",
 	"files": [
 		"dist"
@@ -26,7 +26,6 @@
 		"vite-plugin-lib-inject-css": "^2.1.1"
 	},
 	"dependencies": {
-		"libsso": "github:koompi/libsso",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
 		"usehooks-ts": "^3.1.0"
