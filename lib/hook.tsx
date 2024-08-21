@@ -74,20 +74,23 @@ export function useSSO({
 
 	const ConnectDetectedAccount = (props: {
 		children: (
-			detectAccount: typeof toLogin,
+			detectAccount: () => typeof toLogin,
 			connectDetectAccount: () => void
 		) => React.ReactNode;
 	}) => {
 		if (!checking && isDetected) {
 			return (
 				<>
-					{props.children(toLogin, () => {
-						iframe.current!.contentWindow!.postMessage(
-							{ name: "yes" },
-							"*",
-							[]
-						);
-					})}
+					{props.children(
+						() => toLogin,
+						() => {
+							iframe.current!.contentWindow!.postMessage(
+								{ name: "yes" },
+								"*",
+								[]
+							);
+						}
+					)}
 				</>
 			);
 		}

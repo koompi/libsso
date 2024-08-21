@@ -45,13 +45,16 @@ function x({
       }
     ) : null,
     LoadingSSO: (e) => r ? /* @__PURE__ */ u(g, { children: e.children }) : null,
-    ConnectDetectedAccount: (e) => !r && f ? /* @__PURE__ */ u(g, { children: e.children(S, () => {
-      n.current.contentWindow.postMessage(
-        { name: "yes" },
-        "*",
-        []
-      );
-    }) }) : null,
+    ConnectDetectedAccount: (e) => !r && f ? /* @__PURE__ */ u(g, { children: e.children(
+      () => S,
+      () => {
+        n.current.contentWindow.postMessage(
+          { name: "yes" },
+          "*",
+          []
+        );
+      }
+    ) }) : null,
     LoginWithSSO: (e) => !r && !f ? /* @__PURE__ */ u(g, { children: e.children(() => {
       window.location.replace(
         `${s}/?token=${t}&origin=${i}`

@@ -10,7 +10,7 @@ export declare function useSSO({ projectToken, onSucess, ssoDomain, consumerDoma
         children?: React.ReactNode;
     }) => import("react/jsx-runtime").JSX.Element | null;
     ConnectDetectedAccount: (props: {
-        children: (detectAccount: {
+        children: (detectAccount: () => {
             email: string;
             tg_first_name: string;
             tg_photo_url: string;
