@@ -31,10 +31,10 @@ function x({
   }), d(() => {
     t && n && n.current && setTimeout(() => {
       n.current.contentWindow.postMessage({ name: "check" }, "*", []), m(!0);
-    }, 500);
+    }, 2e3);
   }, [t, b, n]), d(() => {
     const h = new URLSearchParams(window.location.search).get("token");
-    h && setTimeout(() => r(h), 100);
+    h && setTimeout(() => r(h), 1e3);
   }, [r]), {
     Detector: () => t ? /* @__PURE__ */ u(
       "iframe",

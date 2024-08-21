@@ -41,7 +41,7 @@ export function useSSO({
 			setTimeout(() => {
 				iframe.current!.contentWindow!.postMessage({ name: "check" }, "*", []);
 				setPosted(true);
-			}, 500);
+			}, 2000);
 		}
 	}, [projectToken, posted, iframe]);
 
@@ -49,7 +49,7 @@ export function useSSO({
 		const search = new URLSearchParams(window.location.search);
 		const token = search.get("token");
 		if (token) {
-			setTimeout(() => onSucess(token), 100);
+			setTimeout(() => onSucess(token), 1000);
 		}
 	}, [onSucess]);
 
