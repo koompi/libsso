@@ -1,41 +1,41 @@
 import { jsx as u, Fragment as g } from "react/jsx-runtime";
 import { useRef as w, useEffect as d, useLayoutEffect as p, useState as a } from "react";
-var l = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, O = typeof l == "object" && l && l.Object === Object && l, v = typeof self == "object" && self && self.Object === Object && self;
-O || v || Function("return this")();
+var l = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, v = typeof l == "object" && l && l.Object === Object && l, O = typeof self == "object" && self && self.Object === Object && self;
+v || O || Function("return this")();
 var E = typeof window < "u" ? p : d;
-function $(t, o, s, i) {
-  const n = w(o);
+function $(t, r, s, i) {
+  const n = w(r);
   E(() => {
-    n.current = o;
-  }, [o]), d(() => {
-    const r = window;
-    if (!(r && r.addEventListener))
+    n.current = r;
+  }, [r]), d(() => {
+    const o = window;
+    if (!(o && o.addEventListener))
       return;
     const c = (f) => {
       n.current(f);
     };
-    return r.addEventListener(t, c, i), () => {
-      r.removeEventListener(t, c, i);
+    return o.addEventListener(t, c, i), () => {
+      o.removeEventListener(t, c, i);
     };
   }, [t, s, i]);
 }
 function x({
   projectToken: t,
-  onSucess: o,
+  onSucess: r,
   ssoDomain: s = "https://sso.baray.io",
   consumerDomain: i = window.location.origin
 }) {
-  const n = w(null), [r, c] = a(!0), [f, L] = a(!1), [b, m] = a(!1), [S, y] = a();
+  const n = w(null), [o, c] = a(!0), [f, L] = a(!1), [b, m] = a(!1), [S, y] = a();
   return $("message", (e) => {
-    e.origin === s && e.data.name === "login_status" && (L(e.data.isLogin), y(e.data.user), c(!1));
+    e.origin === s && e.data.name === "login_status" && (L(e.data.isLogin), console.log("received", e.data.user), y(e.data.user), c(!1));
   }), d(() => {
     t && n && n.current && setTimeout(() => {
       n.current.contentWindow.postMessage({ name: "check" }, "*", []), m(!0);
     }, 500);
   }, [t, b, n]), d(() => {
     const h = new URLSearchParams(window.location.search).get("token");
-    h && setTimeout(() => o(h), 100);
-  }, [o]), {
+    h && setTimeout(() => r(h), 100);
+  }, [r]), {
     Detector: () => t ? /* @__PURE__ */ u(
       "iframe",
       {
@@ -44,8 +44,8 @@ function x({
         hidden: !0
       }
     ) : null,
-    LoadingSSO: (e) => r ? /* @__PURE__ */ u(g, { children: e.children }) : null,
-    ConnectDetectedAccount: (e) => !r && f ? /* @__PURE__ */ u(g, { children: e.children(
+    LoadingSSO: (e) => o ? /* @__PURE__ */ u(g, { children: e.children }) : null,
+    ConnectDetectedAccount: (e) => !o && f ? /* @__PURE__ */ u(g, { children: e.children(
       () => S,
       () => {
         n.current.contentWindow.postMessage(
@@ -55,7 +55,7 @@ function x({
         );
       }
     ) }) : null,
-    LoginWithSSO: (e) => !r && !f ? /* @__PURE__ */ u(g, { children: e.children(() => {
+    LoginWithSSO: (e) => !o && !f ? /* @__PURE__ */ u(g, { children: e.children(() => {
       window.location.replace(
         `${s}/?token=${t}&origin=${i}`
       );

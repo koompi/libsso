@@ -28,6 +28,8 @@ export function useSSO({
 		if (e.origin === ssoDomain) {
 			if (e.data.name === "login_status") {
 				setIsDetected(e.data.isLogin);
+				console.log("received", e.data.user);
+
 				setToLogin(e.data.user);
 				setIsChecking(false);
 			}
